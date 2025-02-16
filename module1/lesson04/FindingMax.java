@@ -8,15 +8,22 @@ public class FindingMax {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Enter the number of elements:");
+        System.out.println();
+
         int[] arr = new int[scanner.nextInt()];
 
-        int result = 0;
-
-        for (int i=0 ; i<arr.length ; i++) {
+        for (int i = 0; i < arr.length; i++) {
 
             arr[i] = scanner.nextInt();
 
-            result = Math.max(result, arr[i]);
+        }
+
+        int result = arr[0];
+
+        for (int num : arr) {
+
+            result = Math.max(result, num);
 
         }
 
