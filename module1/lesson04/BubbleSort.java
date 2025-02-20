@@ -1,34 +1,14 @@
 package module1.lesson04;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class BubbleSort {
+public class BubbleSort extends ArrayOperations{
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the number of elements:");
-        System.out.println();
-
-        int[] arr = new int[scanner.nextInt()];
-
-        for (int i = 0; i < arr.length; i++) {
-
-            arr[i] = scanner.nextInt();
-
-        }
-
-        System.out.println("Before sorting: " + Arrays.toString(arr));
-
-        System.out.println("After sorting: " + Arrays.toString(bubbleSort(arr)));
-
-    }
-
-    public static int[] bubbleSort(int[] arr) {
+        int[] arr = makingArray();
 
         for (int i = 0; i < arr.length - 1; i++) {
+
+            boolean swapped = false;
 
             for (int j = 0; j < arr.length - i - 1; j++) {
 
@@ -37,14 +17,16 @@ public class BubbleSort {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
-
+                    swapped = true;
                 }
-
             }
 
+            if (!swapped) {
+                break;
+            }
         }
 
-        return arr;
+        System.out.println(printArray(arr));
 
     }
 

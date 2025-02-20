@@ -1,34 +1,10 @@
 package module1.lesson04;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class SelectionSort {
+public class SelectionSort extends ArrayOperations {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the number of elements:");
-        System.out.println();
-
-        int[] arr = new int[scanner.nextInt()];
-
-        for (
-                int i = 0;
-                i < arr.length; i++) {
-
-            arr[i] = scanner.nextInt();
-
-        }
-
-        System.out.println("Before sorting: " + Arrays.toString(arr));
-
-        System.out.println("After sorting: " + Arrays.toString(selectionSort(arr)));
-
-    }
-
-    public static int[] selectionSort(int[] arr) {
+        int[] arr = makingArray();
 
         for (int i = 0; i < arr.length - 1; i++) {
 
@@ -49,7 +25,7 @@ public class SelectionSort {
 
         }
 
-        return arr;
+        System.out.println(printArray(arr));
 
     }
 

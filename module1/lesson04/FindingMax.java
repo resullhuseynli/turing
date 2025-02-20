@@ -2,22 +2,11 @@ package module1.lesson04;
 
 import java.util.Scanner;
 
-public class FindingMax {
+public class FindingMax extends ArrayOperations {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the number of elements:");
-        System.out.println();
-
-        int[] arr = new int[scanner.nextInt()];
-
-        for (int i = 0; i < arr.length; i++) {
-
-            arr[i] = scanner.nextInt();
-
-        }
+        int[] arr = makingArray();
 
         int result = arr[0];
 
@@ -27,7 +16,7 @@ public class FindingMax {
 
         }
 
-        System.out.println(result);
+        System.out.println(printArray(arr));
 
     }
 

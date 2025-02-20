@@ -1,32 +1,10 @@
 package module1.lesson04;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class InsertionSort {
+public class InsertionSort extends ArrayOperations {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the number of elements:");
-        System.out.println();
-
-        int[] arr = new int[scanner.nextInt()];
-
-        for (int i = 0; i < arr.length; i++) {
-
-            arr[i] = scanner.nextInt();
-
-        }
-
-        System.out.println("Before sorting: " + Arrays.toString(arr));
-
-        System.out.println("After sorting: " + Arrays.toString(insertionSort(arr)));
-
-    }
-
-    public static int[] insertionSort(int[] arr) {
+        int[] arr = makingArray();
 
         int n = arr.length;
 
@@ -46,7 +24,7 @@ public class InsertionSort {
 
         }
 
-        return arr;
+        System.out.println(printArray(arr));
 
     }
 
