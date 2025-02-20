@@ -1,8 +1,23 @@
-package module1.lesson04;
+package module1.lesson05;
 
 import java.util.Scanner;
 
-public class ArrayOperations {
+public class Methods {
+
+    public static void main(String[] args) {
+
+        int[] arr = makingArray();
+        printArrayAndIndex(arr);
+
+    }
+
+    public static void printArrayAndIndex(int[] arr) {
+
+        for (int i = 0 ; i < arr.length; i++) {
+            System.out.println("Index: " + i + " Value: " + arr[i]);
+        }
+
+    }
 
     public  static int[] makingArray() {
 
@@ -22,18 +37,6 @@ public class ArrayOperations {
 
         return arr;
 
-    }
-
-    public static String printArray(int[] arr) {
-
-        StringBuilder result = new StringBuilder();
-
-        for (int j : arr) {
-
-            result.append(j).append(" ");
-        }
-
-        return "Sorted array: " + result;
     }
 
 }
