@@ -2,7 +2,7 @@ package module1.lesson05;
 
 import java.util.Scanner;
 
-public class Methods {
+public class GettingIndexAndValues {
 
     public static void main(String[] args) {
 
@@ -29,10 +29,8 @@ public class Methods {
         int[] arr = new int[scanner.nextInt()];
 
         for (int i = 0; i < arr.length; i++) {
-
             arr[i] = scanner.nextInt();
         }
-
         scanner.close();
 
         return arr;

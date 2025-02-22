@@ -5,35 +5,116 @@ import java.util.Scanner;
 
 public class NumberGuessGame {
 
-    public static void main(String[] args) {
+    private static final Scanner scanner = new Scanner(System.in);
 
-        int number = getNumberFromUser();
-        int randomNumber = getRandomNumber();
-        checkNumber(number, randomNumber);
+    public static void main(String[] args) {
+        Start();
+    }
+
+
+    private static void Start() {
+
+        System.out.println("Let the game begin!");
+
+        String name = getName();
+        int randomNumber = GenerateRandomNumber();
+
+        int[] numbers = new int[100];
+        int index = 0;
+
+        boolean isGuessed = false;
+        int number;
+
+        while (!isGuessed) {
+            number = isNumber();
+            isGuessed = checkNumber(number, randomNumber, name);
+            numbers[index] = number;
+            index++;
+        }
+
+        decreaseTheArray(numbers, index);
+
+        showTheResult(numbers, index);
 
     }
 
-    public static int getNumberFromUser() {
-        Scanner scanner = new Scanner(System.in);
+    private static void showTheResult(int[] numbers, int index) {
+        System.out.print("Your Numbers: ");
+
+        for (int j = 0; j < index; j++) {
+            System.out.print(numbers[j] + " ");
+        }
+    }
+
+
+    private static void decreaseTheArray(int[] numbers, int index) {
+
+        for (int i = 1; i < index + 1; i++) {
+            int key = numbers[i];
+            int j = i - 1;
+            while (j >= 0 && numbers[j] < key) {
+                numbers[j + 1] = numbers[j];
+                j--;
+            }
+            numbers[j + 1] = key;
+        }
+
+    }
+
+
+    private static int GenerateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(101);
+    }
+
+
+    private static int isNumber() {
+
         int number = 0;
-        while (number < 1 || number > 10) {
-            System.out.println("Enter a number between 1-10: ");
-            number = scanner.nextInt();
+        boolean isNumber = false;
+
+        while (!isNumber) {
+            System.out.println("Enter your number: ");
+
+            if (scanner.hasNextInt()) {
+                number = scanner.nextInt();
+                scanner.nextLine();
+                if (number > 100 || number < 0) {
+                    System.out.println(
+                            "You entered a number that is not in the range from 0 to 100. Try again.");
+                    continue;
+                }
+                isNumber = true;
+
+            } else {
+                System.out.println("You entered not a number. Try again.");
+                scanner.nextLine();
+            }
         }
         return number;
     }
 
-    public static int getRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(10) + 1;
+
+    private static boolean checkNumber(int number, int randomNumber, String name) {
+
+        if (number == randomNumber) {
+            System.out.println("Congratulations, " + name + "!");
+            return true;
+
+        } else if (number > randomNumber) {
+            System.out.println("Your number is too big. Please, try again.");
+
+        } else {
+            System.out.println("Your number is too small. Please, try again.");
+        }
+        return false;
     }
 
-    public static void checkNumber(int number, int randomNumber) {
-        if (number == randomNumber) {
-            System.out.println("Congratulations! You guessed the number.");
-        } else {
-            System.out.println("Sorry! The number was " + randomNumber);
-        }
+
+    private static String getName() {
+        System.out.print("Enter your name: ");
+        return scanner.nextLine();
     }
+
 
 }
