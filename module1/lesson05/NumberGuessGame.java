@@ -8,16 +8,16 @@ public class NumberGuessGame {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Start();
+        start();
     }
 
 
-    private static void Start() {
+    private static void start() {
 
         System.out.println("Let the game begin!");
 
         String name = getName();
-        int randomNumber = GenerateRandomNumber();
+        int randomNumber = generateRandomNumber();
 
         int[] numbers = new int[100];
         int index = 0;
@@ -62,7 +62,7 @@ public class NumberGuessGame {
     }
 
 
-    private static int GenerateRandomNumber() {
+    private static int generateRandomNumber() {
         Random random = new Random();
         return random.nextInt(101);
     }
