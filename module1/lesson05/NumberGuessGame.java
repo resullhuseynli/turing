@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class NumberGuessGame {
-
     private static final Scanner scanner = new Scanner(System.in);
+    private static final Random random = new Random();
 
     public static void main(String[] args) {
         start();
@@ -14,14 +14,11 @@ public class NumberGuessGame {
 
     private static void start() {
 
-        System.out.println("Let the game begin!");
-
         String name = getName();
         int randomNumber = generateRandomNumber();
 
         int[] numbers = new int[100];
         int index = 0;
-
         boolean isGuessed = false;
         int number;
 
@@ -33,7 +30,6 @@ public class NumberGuessGame {
         }
 
         decreaseTheArray(numbers, index);
-
         showTheResult(numbers, index);
 
     }
@@ -63,7 +59,6 @@ public class NumberGuessGame {
 
 
     private static int generateRandomNumber() {
-        Random random = new Random();
         return random.nextInt(101);
     }
 
@@ -112,9 +107,9 @@ public class NumberGuessGame {
 
 
     private static String getName() {
-        System.out.print("Enter your name: ");
+        System.out.println("*************** Let the game begin! ***************");
+        System.out.println("*************** Enter your name:    ***************");
         return scanner.nextLine();
     }
-
 
 }
