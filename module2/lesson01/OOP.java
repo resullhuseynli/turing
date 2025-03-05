@@ -26,6 +26,7 @@ public class OOP {
 
     public int addNumber(int a, int b, int c) {
         int sum = addNumber(a, b);
-        return sum + c;
+        int result = sum + c;
+        return result;
     }
 }
