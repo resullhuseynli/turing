@@ -1,38 +1,23 @@
 package module2.lesson02;
 
-public class Student {
+public class Student extends Person {
 
-    private String name;
+    private Double gpa;
 
-    private Integer age;
-
-    private String gender;
-
-    public String getName() {
-        return name;
+    public Student(String name, int age, String gender, Double gpa) {
+        super(name, age, gender);
+        this.gpa = gpa;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Student() {
     }
 
-    public Integer getAge() {
-        return age;
+
+    public Double getGpa() {
+        return gpa;
     }
 
-    public void setAge(Integer age) {
-        if (age < 0) {
-            throw new IllegalArgumentException("Age cannot be negative");
-        }  else {
-            this.age = age;
-        }
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGpa(Double gpa) {
+        this.gpa = gpa;
     }
 }
